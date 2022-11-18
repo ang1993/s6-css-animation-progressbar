@@ -1,3 +1,7 @@
+* {
+    font-family: monospace;
+}
+
 body {
     height: 100vh;
     width: 100%;
@@ -5,13 +9,32 @@ body {
     background: linear-gradient(90deg, rgba(246,240,234,1) 0%, rgba(184,198,219,1) 100%);
     margin: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.loading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    font-size: 4em;
+    font-weight: bolder;
+    color: #494949;
+    padding: 0 0 20px 0;
+}
+
+span::after {
+    content: "...";
+    animation: fade-out 2s infinite;
+}
+
 .container {
-    width: 600px;
+    width: 580px;
     height: 50px;
     background-color: #fff;
     border-radius: 3px;
@@ -29,11 +52,14 @@ body {
     width: 500px;
     height: 30px;
     padding: 0 5px;
-    background-color: rgba(3, 23, 52, 0.133);
+    background-color: rgba(179, 180, 182, 0.627);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
+    --webkit-box-shadow: inset 0px 10px 5px -8px rgba(89,89,89,0.48);
+    -moz-box-shadow: inset 0px 10px 5px -8px rgba(89,89,89,0.48);
+    box-shadow: inset 0px 10px 5px -8px rgba(89,89,89,0.48);
 }
 
 .progress_bar {
@@ -46,7 +72,10 @@ body {
 
 .fa-check {
     font-size: 2em;
-    color: #03C8A8;
+    color: #fff;
+    animation:  check 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes animation-progressbar {
@@ -55,4 +84,21 @@ body {
     to {width: 100%;
         background-color: #03C8A8;}
 }
-  
+
+@keyframes check {
+    0% {
+        color: #fff;
+    }
+    100% {
+        color: #03C8A8;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
